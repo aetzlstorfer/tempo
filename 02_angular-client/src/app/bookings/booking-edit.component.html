@@ -1,0 +1,115 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 d-none d-md-block">
+      {{ date | date: "MMM d, y" }}
+    </h1>
+    <h1 class="display-4 d-md-none">
+      {{ date | date: "MMM d" }}
+    </h1>
+    <h2>{{ date | date: "EEEE" }}</h2>
+    <hr />
+    <app-date-switcher-dropdown (changeDate)="changeDate($event)">Change date</app-date-switcher-dropdown>
+  </div>
+</div>
+
+<div class="container">
+  <h1>New Booking</h1>
+  <div class="row">
+    <div class="col">
+      <form action="" #form="ngForm">
+        <div class="form-group">
+          <label for="time-from">Time from</label>
+          <app-time-input-prepend (magicApplied)="adjustTimeFrom($event)">
+            <input
+              type="time"
+              class="form-control"
+              name="timeFrom"
+              [ngModel]="timeFrom | timeToString"
+              (ngModelChange)="timeFrom = convertTime($event)"
+              required
+            />
+          </app-time-input-prepend>
+        </div>
+        <div class="form-group">
+          <label for="time-to">Time to</label>
+          <app-time-input-prepend (magicApplied)="adjustTimeTo($event)">
+            <input
+              type="time"
+              class="form-control"
+              name="timeTo"
+              [ngModel]="timeTo | timeToString"
+              (ngModelChange)="timeTo = convertTime($event)"
+              required
+            />
+          </app-time-input-prepend>
+        </div>
+        <div class="form-group">
+          <label for="task">Task</label>
+          <select
+            class="form-control"
+            id="task"
+            name="selectedtask"
+            required
+            [(ngModel)]="selectedTask"
+          >
+            <option value=""></option>
+            <option
+              *ngFor="let task of tasksObservable | async"
+              [ngValue]="task"
+            >
+              {{ task.name }}
+            </option>
+          </select>
+        </div>
+        <div class="custom-control custom-checkbox my-3">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customCheck1"
+            name="createAnother"
+            [(ngModel)]="createAnother"
+          />
+          <label class="custom-control-label" for="customCheck1"
+            >Create another booking</label
+          >
+        </div>
+        <button
+          href="#"
+          type="submit"
+          class="btn btn-lg btn-success text-white mr-1"
+          (click)="submit($event)"
+          [disabled]="form.invalid"
+        >
+          <i class="fas fa-check-circle"></i> Book
+        </button>
+        <a
+          class="btn btn-lg btn-danger text-white"
+          href="#"
+          [routerLink]="['/bookings', date | date: 'yyyyMMdd']"
+        >
+          <i class="fas fa-window-close"></i> Cancel
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-modal dialogId="noTasksDialog" dialogTitle="No task available!">
+  <div class="modal-body">
+    <p>
+      You don't have any tasks at the moment to book. Please create at first a
+      task.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a type="button" class="btn btn-success" data-dismiss="modal" routerLink="/tasks/new"> OK </a>
+    <a
+      type="button"
+      class="btn btn-danger"
+      data-dismiss="modal"
+      routerLink="/bookings"
+    >
+      Cancel
+    </a>
+  </div>
+</app-modal>

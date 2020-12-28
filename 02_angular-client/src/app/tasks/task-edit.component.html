@@ -1,0 +1,71 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Tasks</h1>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Create new task</h1>
+  <div class="row">
+    <div class="col">
+      <form action="" #form="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Task name (e.g. shredding files)"
+            required
+            [(ngModel)]="task.name"
+          />
+        </div>
+        <div class="form-group">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              id="active"
+              name="type"
+              class="custom-control-input"
+              checked
+              required
+              [(ngModel)]="task.type"
+              [value]="0"
+            />
+            <label class="custom-control-label" for="active">Active</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              id="passive"
+              name="type"
+              class="custom-control-input"
+              required
+              [(ngModel)]="task.type"
+              [value]="1"
+            />
+            <label class="custom-control-label" for="passive"
+              >Passive (Break)</label
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-lg btn-success mr-1"
+          [disabled]="form.invalid"
+          (click)="createTask($event)"
+        >
+          <i class="fas fa-check-circle"></i> Create
+        </button>
+        <a
+          class="btn btn-lg btn-danger text-white"
+          href="#"
+          routerLink="/tasks"
+        >
+          <i class="fas fa-window-close"></i> Cancel
+        </a>
+      </form>
+    </div>
+  </div>
+</div>

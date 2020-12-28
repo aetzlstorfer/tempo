@@ -1,0 +1,17 @@
+a:hover {
+  text-decoration: none;
+}
+
+.startmenu {
+  max-width: 1200px;
+}
+
+.container-bookings {
+  position: relative;
+}
+
+.container-bookings .btn-add {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}

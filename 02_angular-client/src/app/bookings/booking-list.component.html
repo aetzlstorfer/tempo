@@ -1,0 +1,145 @@
+<div class="jumbotron jumbotron-fluid sticky-top">
+  <div class="container">
+    <h1 class="display-4 d-none d-md-block">
+      {{ bookingDay?.date | date: "MMM d, y" }}
+    </h1>
+    <h1 class="display-4 d-md-none">
+      {{ bookingDay?.date | date: "MMM d" }}
+    </h1>
+    <div class="d-flex justify-content-between">
+      <nav>
+        <h2>{{ bookingDay?.date | date: "EEEE" }}</h2>
+        <h3>
+          <span
+            class="badge badge-info"
+            data-toggle="tooltip"
+            title="Total work time"
+          >
+            {{ bookingDay?.workTime | number }}h
+          </span>
+        </h3>
+      </nav>
+      <aside class="align-self-end">
+        <a
+          class="btn btn-add btn-lg btn-success p-3 text-white"
+          data-toggle="tooltip"
+          title="New booking..."
+          [routerLink]="[
+            '/bookings',
+            bookingDay?.date | date: 'yyyyMMdd',
+            'new'
+          ]"
+        >
+          <i class="fas fa-2x fa-plus-circle"></i>
+        </a>
+      </aside>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-between">
+      <button
+        class="btn btn-primary btn-lg mx-1"
+        data-toggle="tooltip"
+        title="1 Week back"
+        (click)="navigate('week', -1)"
+      >
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button
+        class="btn btn-primary btn-lg mx-1"
+        data-toggle="tooltip"
+        title="1 Day back"
+        (click)="navigate('day', -1)"
+      >
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <app-date-switcher-dropdown
+        class="dropdown ml-auto mr-1"
+        (changeDate)="navigateToDate($event)"
+      >
+        <i class="fas fa-calendar-day"></i>
+      </app-date-switcher-dropdown>
+      <button
+        class="btn btn-secondary mr-auto d-none d-sm-inline"
+        data-toggle="tooltip"
+        title="Today"
+        (click)="navigateToday()"
+      >
+        Today
+      </button>
+      <button
+        class="btn btn-secondary mr-auto d-sm-none"
+        data-toggle="tooltip"
+        title="Today"
+        (click)="navigateToday()"
+      >
+        <i class="fas fa-calendar"></i>
+      </button>
+      <button
+        class="btn btn-primary btn-lg mx-1"
+        data-toggle="tooltip"
+        title="1 Day forward"
+        (click)="navigate('day', 1)"
+      >
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <button
+        class="btn btn-primary btn-lg mx-1"
+        data-toggle="tooltip"
+        title="1 Week forward"
+        (click)="navigate('week', 1)"
+      >
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-center p-4" *ngIf="indicator">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <p
+    class="bg-warning text-white text-center p-2"
+    *ngIf="bookingDay?.bookings.length === 0; else bookingTable"
+  >
+    For this date are no bookings available!
+  </p>
+  <ng-template #bookingTable>
+    <table class="table table-striped">
+      <thead>
+        <th style="width: 2rem">#</th>
+        <th style="width: 6rem">Von</th>
+        <th style="width: 6rem">Bis</th>
+        <th>Task(s)</th>
+        <th style="width: 10rem"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of bookingDay?.bookings; index as i">
+          <th>{{ i + 1 }}</th>
+          <td>
+            {{ item.fromTime | timeToDate | date: "shortTime" }}
+          </td>
+          <td>
+            {{ item.toTime | timeToDate | date: "shortTime" }}
+          </td>
+          <td>
+            {{ item.task.name }}
+            <i class="fas fa-coffee" *ngIf="item.task.type == pauseType"></i>
+          </td>
+          <td class="text-right">
+            <button
+              class="btn btn-lg btn-danger"
+              data-toggle="tooltip"
+              title="Click to delete the booking"
+              (click)="removeItem(item.id)"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

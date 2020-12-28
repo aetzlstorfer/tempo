@@ -1,0 +1,26 @@
+<div data-toggle="tooltip" title="Choose date">
+  <button
+    class="btn btn-secondary btn-lg dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <ng-content></ng-content>
+  </button>
+  <div class="dropdown-menu">
+    <form class="p-3">
+      <div class="form-group">
+        <label for="date">Jump to date:</label>
+        <input class="form-control" type="date" #date />
+      </div>
+      <button
+        class="btn btn-secondary"
+        (click)="changeDateClick($event, date.value)"
+      >
+        Go
+      </button>
+    </form>
+  </div>
+</div>

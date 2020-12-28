@@ -1,0 +1,90 @@
+<div class="jumbotron jumbotron-fluid sticky-top">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <nav>
+        <h1 class="display-4">Tasks</h1>
+      </nav>
+      <aside class="align-self-end">
+        <a
+          class="btn btn-add btn-lg btn-success p-3 text-white"
+          data-toggle="tooltip"
+          title="Create new task"
+          routerLink="/tasks/new"
+        >
+          <i class="fas fa-2x fa-plus-circle"></i>
+        </a>
+      </aside>
+    </div>
+    <hr />
+    <p>
+      In this view you can manage your tasks that you need for your bookings
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-center p-4" *ngIf="indicator">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <p
+    class="bg-warning text-white text-center p-2"
+    *ngIf="(tasks | async)?.length === 0"
+  >
+    At the moment there are no tasks available for booking. Please create new ones to get started!
+  </p>
+  <table class="table table-striped" *ngIf="(tasks | async)?.length > 0">
+    <thead>
+      <th style="width: 2rem">#</th>
+      <th style="width: 5rem">Name</th>
+      <th style="width: 3rem">Type</th>
+      <th style="width: 5rem">Booking Count</th>
+      <th style="width: 5rem"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks | async; index as i">
+        <th>
+          {{ i + 1 }}
+        </th>
+        <td>{{ task.name }}</td>
+        <td>
+          <span *ngIf="task.type == pauseType; else active">
+            Passive <i class="fas fa-coffee"></i>
+          </span>
+          <ng-template #active> Active </ng-template>
+        </td>
+        <td>
+          {{ task.bookingCount }}
+        </td>
+        <td class="text-right">
+          <button
+            class="btn btn-lg btn-danger"
+            data-toggle="tooltip"
+            title="Click to delete"
+            (click)="deleteTask($event, task.id, task.bookingCount > 0)"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-modal dialogId="forceDeleteConfirmDialog" dialogTitle="Confirmation">
+  <div class="modal-body">
+    <p>
+      Do you <strong>really</strong> want to remove this task and all it's
+      bookings?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="foreDeleteTaskFinal($event)">
+      OK
+    </button>
+    <button type="button" class="btn btn-success" data-dismiss="modal">
+      Cancel
+    </button>
+  </div>
+</app-modal>

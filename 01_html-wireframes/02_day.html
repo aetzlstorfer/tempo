@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/c270f3b806.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>02 - Day</title>
+  </head>
+  <body class="view-02">
+    <div class="jumbotron jumbotron-fluid sticky-top">
+      <div class="container">
+        <h1 class="display-4">14. Dez.</h1>
+        <div class="d-flex justify-content-between">
+          <nav>
+            <h2>Montag</h2>
+            <h3>
+              <span
+                class="badge badge-info"
+                data-toggle="tooltip"
+                title="Summe Arbeit"
+                >7h</span
+              >
+              <span
+                class="badge badge-info"
+                style="display: none"
+                data-toggle="tooltip"
+                title="Summe Arbeit"
+                >9h</span
+              >
+              <span
+                class="badge badge-danger"
+                data-toggle="tooltip"
+                title="Differenz zur Sollzeit"
+                >-1,5h</span
+              >
+              <span
+                class="badge badge-success"
+                style="display: none"
+                data-toggle="tooltip"
+                title="Differenz zur Sollzeit"
+                >+1,0h</span
+              >
+            </h3>
+          </nav>
+          <aside class="align-self-end">
+            <a
+              class="btn btn-add btn-lg btn-success p-3 text-white"
+              data-toggle="tooltip"
+              title="Neue Buchung hinzufügen"
+              href="03_booking.html"
+            >
+              <i class="fas fa-2x fa-plus-circle"></i>
+            </a>
+          </aside>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between">
+          <button
+            class="btn btn-primary btn-lg mx-1"
+            data-toggle="tooltip"
+            title="1 Woche zurück"
+          >
+            <i class="fas fa-angle-double-left"></i>
+          </button>
+          <button
+            class="btn btn-primary btn-lg mx-1"
+            data-toggle="tooltip"
+            title="1 Tag zurück"
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+          <div
+            class="dropdown ml-auto mr-1"
+            data-toggle="tooltip"
+            title="Datum auswählen"
+          >
+            <button
+              class="btn btn-secondary btn-lg dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fas fa-calendar-day"></i>
+            </button>
+            <div class="dropdown-menu">
+              <form class="p-3">
+                <div class="form-group">
+                  <label for="date">Jump to date:</label>
+                  <input class="form-control" type="date" autofocus />
+                </div>
+                <button class="btn btn-primary">Go</button>
+              </form>
+            </div>
+          </div>
+          <button
+            class="btn btn-secondary mr-auto d-none d-sm-inline"
+            data-toggle="tooltip"
+            title="Heutigen Tag auswählen"
+          >
+            Today
+          </button>
+          <button
+            class="btn btn-secondary mr-auto d-sm-none"
+            data-toggle="tooltip"
+            title="Heutigen Tag auswählen"
+          >
+            <i class="fas fa-calendar"></i>
+          </button>
+          <button
+            class="btn btn-primary btn-lg mx-1"
+            data-toggle="tooltip"
+            title="1 Tag vor"
+          >
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button
+            class="btn btn-primary btn-lg mx-1"
+            data-toggle="tooltip"
+            title="1 Woche vor  "
+          >
+            <i class="fas fa-angle-double-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <th style="width: 2rem">#</th>
+          <th style="width: 3rem">Von</th>
+          <th style="width: 3rem">Bis</th>
+          <th>Task(s)</th>
+          <th style="width: 10rem"></th>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>7:30</td>
+            <td>8:30</td>
+            <td>Task 1</td>
+            <td class="text-right">
+              <button
+                class="btn btn-lg btn-danger"
+                data-toggle="tooltip"
+                title="Klickem zum Löschen"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>8:30</td>
+            <td>9:30</td>
+            <td>Task 2</td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>9:30</td>
+            <td>10:30</td>
+            <td>Task 3</td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>10:30</td>
+            <td>12:00</td>
+            <td>Task 2</td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td>12:00</td>
+            <td>12:30</td>
+            <td>
+              <i class="fas fa-utensils"></i>
+            </td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td>13:00</td>
+            <td>14:00</td>
+            <td>Task 5</td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td>14:00</td>
+            <td>14:10</td>
+            <td>
+              <i class="fas fa-coffee"></i>
+            </td>
+            <td class="text-right">
+              <button class="btn btn-lg btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

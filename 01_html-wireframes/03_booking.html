@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/c270f3b806.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>03 - Booking</title>
+  </head>
+  <body class="view-03">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">14. Dez.</h1>
+        <h2>Montag</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Neue Buchung</h1>
+      <div class="row">
+        <div class="col">
+          <form action="">
+            <div class="form-group">
+              <label for="time-from"> Zeit von </label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="fas fa-magic"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="10"
+                      >+10min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="15"
+                      >+15min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="30"
+                      >+30min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="45"
+                      >+45min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="60"
+                      >+60min</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="-10"
+                      >-10min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="-15"
+                      >-15min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="-30"
+                      >-30min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="-45"
+                      >-45min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-from-subtractor"
+                      data-time="-60"
+                      >-60min</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a href="#time-from" class="dropdown-item time-clearer"
+                      >Clear</a
+                    >
+                  </div>
+                </div>
+                <input type="time" id="time-from" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="time-to"> Zeit bis </label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="fas fa-magic"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="10"
+                      >+10min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="15"
+                      >+15min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="30"
+                      >+30min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="45"
+                      >+45min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="60"
+                      >+60min</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="-10"
+                      >-10min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="-15"
+                      >-15min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="-30"
+                      >-30min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="-45"
+                      >-45min</a
+                    >
+                    <a
+                      href="#"
+                      class="dropdown-item time-to-adder"
+                      data-time="-60"
+                      >-60min</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a href="#time-to" class="dropdown-item time-clearer"
+                      >Clear</a
+                    >
+                  </div>
+                </div>
+                <input type="time" id="time-to" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="task">Task</label>
+              <select class="form-control" id="task">
+                <option></option>
+                <option>Task 1</option>
+                <option>Task 2</option>
+                <option>Task 3</option>
+              </select>
+            </div>
+            <div class="custom-control custom-checkbox my-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Weitere Zeiten buchen</label>
+            </div>
+            <a href="02_day.html" type="submit" class="btn btn-lg btn-success text-white">
+              <i class="fas fa-check-circle"></i> Buchen
+            </a>
+            <a class="btn btn-lg btn-danger text-white" href="02_day.html">
+              <i class="fas fa-window-close"></i> Abbrechen
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
